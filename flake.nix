@@ -1,5 +1,5 @@
 {
-  description = "A flake for the ncps Python package";
+  description = "A flake for the environment of the thesis on forecasting volatility with liquid time-constant neural networks.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -19,7 +19,7 @@
             owner = "vxld100";
             repo = "ncps";
             rev = "master";
-            sha256 = "sha256-QyoOQGq0mPmkBvvjMtcli+3AyztT/K7dE09aBs1rX28="; # Replace with actual hash
+            sha256 = "sha256-QyoOQGq0mPmkBvvjMtcli+3AyztT/K7dE09aBs1rX28=";
           };
 
 	  format = "setuptools";
@@ -30,7 +30,6 @@
 	    numpy
           ];
           
-          # Skip tests if they require additional setup
           doCheck = false;
           
           pythonImportsCheck = [ ];
