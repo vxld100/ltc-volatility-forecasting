@@ -37,7 +37,7 @@
           meta = with pkgs.lib; {
             description = "Neural Circuit Policies (NCPs) implementation with bugfixes";
             homepage = "https://github.com/vxld100/ncps";
-            license = licenses.asl20; # Adjust if different
+            license = licenses.asl20;
           };
         };
       in
@@ -46,23 +46,23 @@
         packages.ncps = ncps;
         
         # Development shell with the package available
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            python312
-	    python312Packages.torch
-	    python312Packages.pandas
-	    python312Packages.matplotlib
-	    python312Packages.tqdm
-	    python312Packages.scipy
-	    python312Packages.scikit-learn
-	    python312Packages.pytorch-lightning
-            ncps
+	devShells.default = pkgs.mkShell {
+	  buildInputs = with pkgs; [
+	    python312
+	      python312Packages.torch
+	      python312Packages.pandas
+	      python312Packages.matplotlib
+	      python312Packages.tqdm
+	      python312Packages.scipy
+	      python312Packages.scikit-learn
+	      python312Packages.pytorch-lightning
+	      ncps
 
-	    R
-	    rPackages.rugarch
-	    rPackages.xts
-	    rPackages.zoo
-          ];
-        };
+	      R
+	      rPackages.rugarch
+	      rPackages.xts
+	      rPackages.zoo
+	  ];
+	};
       });
 }
