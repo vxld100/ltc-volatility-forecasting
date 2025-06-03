@@ -1,9 +1,10 @@
 # Liquid Time-Constant Networks for Volatility Forecasting
 
-This repository implements the methodology from my
+This repository contains the implementation from my
 Bachelor's thesis: *"Liquid Time-Constant Neural
 Networks: A Continuous-Time Approach to Volatility
 Forecasting"* (University of St. Gallen, 2025).
+See the *Thesis.pdf* file for the full text.
 
 ## Abstract
 
@@ -63,11 +64,75 @@ cd ltc-volatility-forecasting
 nix develop
 ```
 
+This last command will take a while. Please be
+patient while Nix sets up the development
+environment. If you plan to return to work with
+this repository consider installing
+[direnv](https://direnv.net/) which will cache the
+shell and automatically enable it when you enter
+the directory (run `direnv allow` after setup).
+Don't forget to [enable
+direnv](https://direnv.net/docs/hook.html) in your
+shell of choice. Otherwise you might have to
+download some or all of the packages the next time
+you visit the directory.
+
 ### Key Files
 - `data.py` - TAQ data processing and kernel volatility estimation
-- `kernel.py` - Figueroa-López & Wu (2024) implementation  
-- `train_realgarch.R` - RealGARCH model training
-- `train_ltc.py` - LTC training and comparison
+- `kernel.py` - my implementation of Figueroa-López & Wu (2024)
+- `train_realgarch.R` - RealGARCH (Hansen et. al, 2012) model training
+- `train_ltc.py` - LTC (Hasani et. al, 2021) training and comparison
+
+## 🛠️ Usage
+
+### Prerequisites
+The code assumes the following directory structure:
+- Create `data/raw/` directory 
+- Place unprocessed TAQ trade files there
+- Rename files to follow `ibm_*` pattern (currently hardcoded for IBM data)
+
+### Step-by-step workflow
+
+#### 1. Process TAQ data and calculate realized volatility
+```bash
+python3 data.py
+```
+This will:
+- Clean the data following standard procedures
+- Calculate kernel-based realized volatility estimates
+- Output results to `data/output/ibm_realized_vol_prc_2000-2024.csv`
+
+*Note: You never need to call `kernel.py` directly - it's kept separate for clarity.*
+
+#### 2. Train RealGARCH benchmark
+```bash
+Rscript train_realgarch.R
+```
+This trains the RealGARCH model and saves predictions to the `data/` directory.
+
+#### 3. Train LTC model and compare
+```bash
+python3 train_ltc.py
+```
+To change hyperparameters modify the dictionary at
+the top of the main code execution section of the
+file. The results are saved to `results/`
+directory (not `result/` - that's for Nix builds).
+
+### Understanding the output
+
+Each run creates a subdirectory like `00033928277844097-e7a648dbc4/` where:
+- **First part**: Scaled validation loss (lower = better performance)  
+- **Second part**: MD5 hash of hyperparameters (same hash = same config)
+
+Inside this directory you will find the following
+files:
+
+- **`.json`** - Complete hyperparameters and results (training time, metrics, etc.)
+- **`.csv`** - Model comparison data (ground truth, predictions, log returns)
+- **`.ckpt`** - Best model checkpoint (lowest validation loss)
+- **`model_comparison.pdf`** - Visual comparison of LTC vs RealGARCH predictions
+- **`training_loss.pdf`** - Training and validation loss curves
 
 ## 📝 Citation
 
