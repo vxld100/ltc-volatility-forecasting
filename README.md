@@ -11,7 +11,7 @@ See the *Thesis.pdf* file for the full text.
 Addressing the limitations of discrete-time models
 in handling irregular financial data, this
 thesis explores Liquid Time-Constant Networks
-(LTCs) – biologically- inspired neural networks
+(LTCs) – biologically-inspired neural networks
 operating in continuous time via ordinary
 differential equations – for daily volatility
 forecasting. This work evaluates LTCs against the
