@@ -50,9 +50,12 @@ results you don't try to install the packages
 yourself, for I used my own fork of the ncps
 package, which implements the LTCs. This is due to
 a bug in the original package, which is what you
-would install using pip or something similar.
+would install using pip or something similar. The
+Nix setup takes care of that.
 
 ### Setup
+
+After installing Nix, run the following code:
 
 ```bash
 git clone https://github.com/vxld100/ltc-volatility-forecasting.git
@@ -68,7 +71,7 @@ nix develop
 
 ## 📝 Citation
 
-If you use this code in your research, please cite:
+If you use this code or the findings in your research, please cite:
 
 ```bibtex
 @thesis{boschung2025ltc,
@@ -82,9 +85,9 @@ If you use this code in your research, please cite:
 
 ## 🔗 References
 
-- **Figueroa-López, J.E. & Wu, B. (2024)**. Kernel estimation of spot volatility with microstructure noise using pre-averaging. *Econometric Theory*, 40(3), 558-607.
-- **Hasani, R. et al. (2021)**. Liquid time-constant networks. *Proceedings of the AAAI Conference on Artificial Intelligence*, 35(9), 7657-7666.
-- **Hansen, P.R., Huang, Z. & Shek, H.H. (2012)**. Realized GARCH: A joint model for returns and realized measures of volatility. *Journal of Applied Econometrics*, 27(6), 877-906.
+- **Figueroa-López, J. E., & Wu, B. (2024)**. Kernel estimation of spot volatility with microstructure noise using pre-averaging. Econometric Theory, 40(3), 558– 607.
+- **Hasani, R., Lechner, M., Amini, A., Rus, D., & Grosu, R. (2021, May)**. Liquid time-constant networks. Proceedings of the AAAI Conference on Artificial Intelligence, 35(9), 7657-7666.
+- **Hansen, P. R., Huang, Z., & Shek, H. H. (2012)**. Realized garch: a joint model for returns and realized measures of volatility. Journal of Applied Econometrics, 27(6), 877–906.
 
 ## 📄 License
 
