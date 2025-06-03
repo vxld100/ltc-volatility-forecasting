@@ -48,7 +48,7 @@
         # Development shell with the package available
 	devShells.default = pkgs.mkShell {
 	  buildInputs = with pkgs; [
-	    python312
+	      python312
 	      python312Packages.torch
 	      python312Packages.pandas
 	      python312Packages.matplotlib
