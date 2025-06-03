@@ -24,11 +24,11 @@
 
 	  format = "setuptools";
           
-          propagatedBuildInputs = with pkgs.python3Packages; [
+	  propagatedBuildInputs = with pkgs.python3Packages; [
 	    packaging
-            future
+	    future
 	    numpy
-          ];
+	  ];
           
           doCheck = false;
           
