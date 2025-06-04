@@ -38,13 +38,14 @@ This repository uses the
 manager to install the necessary packages and make
 them available in a reproducible shell. This
 ensures that you use the exact same python and R
-packages that I did in order to make the results
-more easily reproducible and generally avoid much
-of the struggle with mixing packages from
-different languages. For this you will need to
-[install Nix](https://nixos.org/download/). It is
-available on Linux, macOS, and Windows Subsystem
-for Linux (WSL).
+packages and package versions that I did in order
+to make the results more easily reproducible and
+generally avoid much of the struggle with mixing
+packages from different languages. For this you
+will need to [install
+Nix](https://nixos.org/download/). It is available
+on Linux, macOS, and Windows Subsystem for Linux
+(WSL).
 
 It is crucial that if you try to reproduce these
 results you don't try to install the packages
