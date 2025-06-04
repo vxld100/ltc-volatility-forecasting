@@ -99,8 +99,9 @@ The code assumes the following directory structure:
 python3 data.py
 ```
 This will:
-- Clean the data following standard procedures
-- Calculate kernel-based realized volatility estimates
+- Clean the data with a sliding window using mean
+  average deviation
+- Calculate kernel-based realized volatility
 - Output results to `data/output/ibm_realized_vol_prc_2000-2024.csv`
 
 *Note: You never need to call `kernel.py` directly - it's kept separate for clarity.*
@@ -122,7 +123,9 @@ directory (not `result/` - that's for Nix builds).
 
 ### Understanding the output
 
-Each run creates a subdirectory like `00033928277844097-e7a648dbc4/` where:
+Each training and evaluation run creates a
+subdirectory like `00033928277844097-e7a648dbc4/`
+where:
 - **First part**: Scaled validation loss (lower = better performance)  
 - **Second part**: MD5 hash of hyperparameters (same hash = same config)
 
