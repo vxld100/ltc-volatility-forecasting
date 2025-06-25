@@ -4,7 +4,6 @@ This repository contains the implementation from my
 Bachelor's thesis: *"Liquid Time-Constant Neural
 Networks: A Continuous-Time Approach to Volatility
 Forecasting"* (University of St. Gallen, 2025).
-See the *Thesis.pdf* file for the full text.
 
 ## Abstract
 
